@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 1 - Nintendo Switch</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ex_1.css">
+    <link href="https://fonts.cdnfonts.com/css/zepto" rel="stylesheet">
+    
+    <style>
+        /* --- CSS DO EXERCÍCIO 1: CENTRALIZAR --- */
+        .box-container {
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center;     /* Centraliza verticalmente (opcional aqui) */
+        }
+    </style>
+</head>
+<body>
+    <div class="nintendo-switch">
+        
+        <div class="joycon left">
+            <div class="top-buttons"><div class="btn-minus"></div></div>
+            <div class="stick"><div class="stick-top"></div></div>
+            <div class="d-pad"><div class="arrow up"></div><div class="arrow left"></div><div class="arrow right"></div><div class="arrow down"></div></div>
+            <div class="capture-btn"></div>
+        </div>
+        
+       <div class="console-screen">
+    <div class="screen-bezel">
+        <div class="screen-display">
+
+            <!-- CONTEÚDO DA TELA COMEÇA AQUI -->
+            <div class="box-container">
+
+                <div class="pokemon-item">
+                    <img src="gif/pikachu.gif" alt="Pikachu" width="60">
+                    <span class="pokemon-name">Pikachu</span>
+                </div>
+
+                <div class="pokemon-item">
+                    <img src="gif/meowth.gif" alt="Meowth" width="60">
+                    <span class="pokemon-name">Charmander</span>
+                </div>
+
+                <div class="pokemon-item">
+                    <img src="gif/psyduck.gif" alt="Psyduck" width="60">
+                    <span class="pokemon-name">Squirtle</span>
+                </div>
+
+            </div>
+
+            <div class="app-footer">
+                <div class="btn-hint"><span class="key-circle">B</span> Sair</div>
+            </div>
+            <!-- CONTEÚDO DA TELA TERMINA AQUI -->
+
+        </div>
+    </div>
+</div>
+
+        
+        <div class="joycon right">
+            <div class="top-buttons"><div class="btn-plus"><div class="v"></div><div class="h"></div></div></div>
+            <div class="abxy-pad"><div class="btn x">X</div><div class="btn y">Y</div><div class="btn a">A</div><div class="btn b">B</div></div>
+            <div class="stick"><div class="stick-top"></div></div>
+            <div class="home-btn"><div class="home-ring"></div></div>
+        </div>
+
+    </div>
+
+    <script>
+        // Script para voltar ao Menu
+        const btnB = document.querySelector('.btn.b');
+        function goBack() { window.location.href = 'index.html'; }
+        btnB.addEventListener('click', goBack);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' || e.key === 'Escape' || e.key.toLowerCase() === 'b') goBack();
+        });
+    </script>
+</body>
+</html>

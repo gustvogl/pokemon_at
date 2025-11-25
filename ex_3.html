@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 1 - Nintendo Switch</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ex_1.css">
+    <link href="https://fonts.cdnfonts.com/css/zepto" rel="stylesheet">
+    
+    <style>
+        /* --- CORREÇÃO PRINCIPAL: TELA AGORA É FLEX VERTICAL --- */
+        .screen-display {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;   /* joga tudo para o fundo */
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        /* --- BOX COM OS POKÉMON, AGORA ENCOSTA NA GRAMA --- */
+        .box-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-end; /* encosta os pokémons no chão */
+            gap: 5px;
+            margin-bottom: 20px; /* distância da "grama" */
+            z-index: 2; /* acima do fundo */
+        }
+
+        /* FUNDO DIRETAMENTE NO HTML */
+        .bg-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;   /* não corta mais */
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="nintendo-switch">
+        
+        <div class="joycon left">
+            <div class="top-buttons"><div class="btn-minus"></div></div>
+            <div class="stick"><div class="stick-top"></div></div>
+            <div class="d-pad">
+                <div class="arrow up"></div>
+                <div class="arrow left"></div>
+                <div class="arrow right"></div>
+                <div class="arrow down"></div>
+            </div>
+            <div class="capture-btn"></div>
+        </div>
+        
+        <div class="console-screen">
+            <div class="screen-bezel">
+                <div class="screen-display">
+
+                    <!-- IMAGEM DE FUNDO -->
+                    <img class="bg-image" src="gif/ad96cb1fdb938a35fc31416a00924a49.gif" alt="fundo">
+
+                    <!-- POKÉMON ENCOSTADOS NA GRAMA -->
+                    <div class="box-container">
+
+                        <div class="pokemon-item">
+                            <img src="gif/eevee.gif" alt="Eevee" width="60">
+                            <span class="pokemon-name">Eevee</span>
+                        </div>
+
+                        <div class="pokemon-item">
+                            <img src="gif/vulpix.gif" alt="Vulpix" width="60">
+                            <span class="pokemon-name">Vulpix</span>
+                        </div>
+
+                        <div class="pokemon-item">
+                            <img src="gif/jigglypuff.gif" alt="Jigglypuff" width="60">
+                            <span class="pokemon-name">Jigglypuff</span>
+                        </div>
+
+                    </div>
+
+                    <div class="app-footer">
+                        <div class="btn-hint"><span class="key-circle">B</span> Sair</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="joycon right">
+            <div class="top-buttons">
+                <div class="btn-plus"><div class="v"></div><div class="h"></div></div>
+            </div>
+            <div class="abxy-pad">
+                <div class="btn x">X</div>
+                <div class="btn y">Y</div>
+                <div class="btn a">A</div>
+                <div class="btn b">B</div>
+            </div>
+            <div class="stick"><div class="stick-top"></div></div>
+            <div class="home-btn"><div class="home-ring"></div></div>
+        </div>
+
+    </div>
+
+    <script>
+        const btnB = document.querySelector('.btn.b');
+        function goBack() { window.location.href = 'index.html'; }
+        btnB.addEventListener('click', goBack);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' || e.key === 'Escape' || e.key.toLowerCase() === 'b')
+                goBack();
+        });
+    </script>
+</body>
+</html>

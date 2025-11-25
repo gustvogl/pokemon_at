@@ -1,0 +1,101 @@
+/* ==========================
+   ex_2.css — Fundo cover + pokémons no chão
+========================== */
+
+@import url('https://fonts.cdnfonts.com/css/zepto');
+
+/* ESTRUTURA */
+.console-screen {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.screen-bezel {
+    width: 700px;
+    height: 360px;
+    background: #111;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.screen-display {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* FUNDO */
+.bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* NUNCA CORTA */
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* BOX DOS POKEMONS */
+.box-container {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;  /* DESCE OS POKÉMONS PARA O CHÃO */
+    gap: 40px;
+
+    width: 100%;
+    height: calc(100% - 60px);
+    padding-bottom: 20px;
+}
+
+.pokemon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemon-item img {
+    width: 150px;
+    height: auto;
+}
+
+.pokemon-name {
+    font-family: 'Zepto', sans-serif;
+    font-size: 26px;
+    color: #fff;
+    margin-top: 6px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+/* RODAPÉ */
+.app-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: rgba(255,255,255,0.85);
+    padding: 8px 16px;
+    display: flex;
+    justify-content: flex-end;
+
+    z-index: 5;
+}
+
+.key-circle {
+    width: 20px;
+    height: 20px;
+    background: #333;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
